@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    <button class = "size">Change size?</button>
     
     <div class="container"></div>
 
@@ -22,7 +23,22 @@
             counter++;
         }
 
+        const changeSize = document.querySelector('.size');
+        changeSize.addEventListener('click', () => {
+            const squares = document.querySelectorAll('.square');
+            squares.forEach(square => container.removeChild(square));
+        })
+
+        const squares = document.querySelectorAll('.square');
+        squares.forEach(square => {
+        square.addEventListener("mouseenter", () => {
+        square.style.backgroundColor = "orange";
+            });
+        });
+
     </script>
+
+    
 
 </body>
 </html>
