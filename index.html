@@ -14,27 +14,38 @@
     <div class="container"></div>
 
     <script>
-        let counter  = 0;
         const container = document.querySelector('.container');
-        while(counter<256){
-            const square = document.createElement("div");
-            square.classList.add("square");
-            container.appendChild(square);
-            counter++;
-        }
+        makeGrid(16);
 
         const changeSize = document.querySelector('.size');
         changeSize.addEventListener('click', () => {
             const squares = document.querySelectorAll('.square');
             squares.forEach(square => container.removeChild(square));
+            let size = 101;
+            while(size>100){
+                size = parseInt(prompt("Enter size of grid desired: (<100 please)"));
+            }
+            makeGrid(size);
+
         })
 
-        const squares = document.querySelectorAll('.square');
-        squares.forEach(square => {
-        square.addEventListener("mouseenter", () => {
-        square.style.backgroundColor = "orange";
-            });
-        });
+        function makeGrid(size){
+            let counter  = 0;
+            const total = 840;
+            let len = total/size;
+            while(counter<(size*size)){
+            const square = document.createElement("div");
+            square.classList.add("square");
+            square.style.width = `${len}px`;
+            square.style.height = `${len}px`;
+            square.addEventListener("mouseenter", () => {
+                    square.style.backgroundColor = "orange";
+                });
+            
+            container.appendChild(square);
+            counter++   ;
+            }
+        }
 
     </script>
 

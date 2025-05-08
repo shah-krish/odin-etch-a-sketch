@@ -1,13 +1,12 @@
 .container{
     display: flex;
     width: 840px;
+    height: 840px;
     flex-wrap: wrap;
 }
 .square{
-    height: 50px;
-    width: 50px;
+    box-sizing: border-box;
     border: solid 1px black;
-   
 }
 .size{
     /* height: 50px;
